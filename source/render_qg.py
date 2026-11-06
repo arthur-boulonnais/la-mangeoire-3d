@@ -91,6 +91,12 @@ for m in bpy.data.materials:
     try: m.surface_render_method = 'DITHERED'
     except Exception: pass
 
+# viewer-only light wash planes are replaced by real light from the LED strips
+for o in [o for o in bpy.data.objects if o.name.startswith('washFX')]:
+    bpy.data.objects.remove(o, do_unlink=True)
+for m in bpy.data.materials:
+    if m.name == 'ledUp':
+        n = bsdf(m); setin(n, 'Emission Strength', 40.0 if night else 0.0); setin(n, 'Emission Color', (1.0, 0.62, 0.32, 1))
 # glass does not block light or sun
 for o in bpy.data.objects:
     if o.type == 'MESH' and o.active_material and o.active_material.name == 'glass':
