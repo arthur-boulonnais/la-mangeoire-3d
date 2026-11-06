@@ -10,7 +10,7 @@ new_f='''const FACADES=[
 '''
 d2=re.sub(r'// thin façades.*?\n\];\n', new_f, d, flags=re.S)
 assert 'n:[0,-1],door' in d2
-t=open('qg-3d/template.html').read().replace('__LEOPARD__',open('leopard.b64').read().strip())
+t=open('qg-3d/template.html').read().replace('__LEOPARD__',open('leopard.b64').read().strip()).replace('__WALLPAPER__',open('wallpaper.b64').read().strip())
 open('qg-3d/index.html','w').write(t.replace('/*__DATA__*/',d2))
 open('qg-3d/test.html','w').write('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}</style></head><body>'+t.replace('/*__DATA__*/',d2)+'</body></html>')
 print('built')

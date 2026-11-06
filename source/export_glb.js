@@ -3,7 +3,7 @@ const {chromium}=require('playwright');const fs=require('fs');
 (async()=>{const [,,dir,mode,out]=process.argv;
 const b=await chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--ignore-gpu-blocklist']});
 const p=await b.newPage({viewport:{width:400,height:300}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
-await p.goto('file://'+dir+'/test.html#entree1');await p.waitForFunction(()=>window.__qg&&window.__qgFonts===true&&window.__qgTex===true,null,{timeout:120000});
+await p.goto('file://'+dir+'/test.html#entree1');await p.waitForFunction(()=>window.__qg&&window.__qgFonts===true&&window.__qgTex===true&&window.__qgTex2===true,null,{timeout:120000});
 await p.addScriptTag({url:'https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/exporters/GLTFExporter.js'});
 const b64=await p.evaluate(async(mode)=>{const q=window.__qg;q.go('entree1',false);q.setMode(mode);q.renderer.setAnimationLoop(null);
   // strip label objects

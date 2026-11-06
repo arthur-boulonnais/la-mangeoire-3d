@@ -155,8 +155,8 @@ const CX=10.2, CZ=7.4, HC=3.0;
 // solid walls dressed like the references: boiserie, velvet, mirrors, sconces (a→b on the inner face, n points into the room)
 const DECOR=[
  {a:[7.45,5.369],b:[11.70,5.31],n:[0.014,1]},
- {a:[11.72,5.309],b:[12.45,4.604],n:[0.695,0.719]},
- {a:[12.45,4.604],b:[14.099,4.553],n:[0.031,1]},
+ {a:[11.72,5.309],b:[12.45,4.604],n:[0.695,0.719],wp:true},
+ {a:[12.45,4.604],b:[14.099,4.553],n:[0.031,1],wp:true},
  {a:[11.12,10.08],b:[9.70,10.096],n:[0,-1]},
  {a:[6.60,10.135],b:[4.62,10.157],n:[0,-1]}
 ];
@@ -311,8 +311,15 @@ function sconce(g,x,y,z){const p=new THREE.Group();p.position.set(x,y,z);g.add(p
   [1,-1].forEach(sg=>{mesh(lbox(0.012,0.15,0.012),M.brass,0,sg*0.22,0.005,p);[-0.04,0.04].forEach(xx=>mesh(lbox(0.012,0.09,0.012),M.brass,xx,sg*0.19,0.005,p));
     mesh(lbox(0.092,0.012,0.012),M.brass,0,sg*0.235,0.005,p);mesh(lbox(0.034,0.012,0.012),M.brass,0,sg*0.295,0.005,p);});
 }
+// piano corner wallpaper: tile = 2x2 pattern repeats, 34.8 x 35.6 cm (sample 50 x 50 cm)
+const wpTex=new THREE.TextureLoader().load('__WALLPAPER__',()=>{window.__qgTex2=true;});wpTex.wrapS=wpTex.wrapT=THREE.RepeatWrapping;wpTex.encoding=THREE.sRGBEncoding;wpTex.anisotropy=8;window.__qgTex2=false;
+function wallpaperWall(g,L){const y0=0.97,y1=2.67,h=y1-y0;const tx=wpTex.clone();tx.needsUpdate=true;tx.repeat.set(L/0.348,h/0.356);
+  const m=new THREE.MeshStandardMaterial({map:tx,roughness:.62,envMapIntensity:0.18});m.name='wallpaper';m.userData.env=0.18;ALLM.push(m);
+  const p=new THREE.Mesh(new THREE.PlaneGeometry(L,h),m);p.position.set(L/2,(y0+y1)/2,0.032);p.receiveShadow=true;g.add(p);
+  const N=Math.max(1,Math.round(L/0.95));for(let i=0;i<N;i++)sconce(g,(i+0.5)*L/N,1.82,0.04);}
 function decorWall(w){const {g,L}=wallFrame(w.a,w.b,w.n);
   mesh(lbox(L,0.95,0.03),M.wood,L/2,0.475,0.015,g);mesh(lbox(L,0.02,0.04),M.brass,L/2,0.96,0.02,g);
+  if(w.wp){wallpaperWall(g,L);mesh(lbox(L,0.1,0.06),M.wood,L/2,2.72,0.03,g);cove(g,L);return;}
   const N=Math.max(1,Math.round(L/0.95)),bw=L/N;
   for(let i=0;i<N;i++){const cx=(i+0.5)*bw;
     if(i%2===0){mesh(lbox(bw-0.1,1.62,0.03),M.velvet,cx,1.8,0.015,g);sconce(g,cx,1.82,0.04);}
