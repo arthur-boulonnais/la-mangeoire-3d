@@ -549,7 +549,10 @@ TABLES.forEach(([tx,tz,kind])=>{const lim=kind==='rd'?0.82:0.6,off=kind==='rd'?0
 
 
 /* ---------- Other elements ---------- */
-prism(DESSERTE,0,0.92,M.wood);prism(DESSERTE,0.92,0.04,M.marbleBlack);
+// structural column (floor to ceiling), clad in boiserie with brass bands
+(function(){const cx=DESSERTE.reduce((s,p)=>s+p[0],0)/DESSERTE.length,cz=DESSERTE.reduce((s,p)=>s+p[1],0)/DESSERTE.length;
+  const grow=d=>DESSERTE.map(([x,z])=>{const l=Math.hypot(x-cx,z-cz);return [x+(x-cx)/l*d,z+(z-cz)/l*d];});
+  prism(DESSERTE,0,HC,M.wall);prism(grow(0.025),0,0.12,M.plinth);prism(grow(0.015),0.94,0.025,M.brass);prism(grow(0.03),2.74,0.12,M.wood);prism(grow(0.012),2.70,0.02,M.brass);})();
 (function(){const ang=angOf(1,-0.031);
   // antique rosewood upright (after the photo): case, recessed panels, key cheeks, open music rest, brass double sconces, carved consoles
   const P=new THREE.Group();P.position.copy(V(13.25,4.91));P.rotation.y=ang;scene.add(P);const W=M.rosewood;
@@ -671,7 +674,7 @@ sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.c
 
 /* ---------- Zone labels ---------- */
 label('Cuisine',4.3,4.6,0.4,'zone');label('WC',7.03,4.85,2.3,'zone');label('Bar',6.9,7.95,1.4,'zone');label('Terrasse (indicative)',13.1,12.2,1.0,'zone');label('Arrière-bar',4.9,8.5,1.25);
-label('Entrée 1',16.6,8.5,2.45,'zone');label('Entrée 2',7.55,10.45,2.45,'zone');label('Piano droit',13.25,4.9,1.6);label('Desserte',13.9,7.6,1.15);label('Sas · rideau',15.5,8.3,2.4);
+label('Entrée 1',16.6,8.5,2.45,'zone');label('Entrée 2',7.55,10.45,2.45,'zone');label('Piano droit',13.25,4.9,1.6);label('Poteau',13.9,7.6,1.4);label('Sas · rideau',15.5,8.3,2.4);
 
 /* ---------- Stats ---------- */
 const seats=chairCount+banqTables+1, bar=STOOLS.length;
