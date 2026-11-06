@@ -719,7 +719,7 @@ const VIEWS=[
  {id:'facade',name:'Façade',pos:[22.6,1.7,16.2],tgt:[13.6,2.9,8.6]}
 ];
 const nav=document.getElementById('views');
-const RENDERS=[['rendus/soir-entree1.jpg','Soir · depuis l\'entrée 1'],['rendus/soir-bar.jpg','Soir · le bar'],['rendus/soir-fond.jpg','Soir · coin piano'],['rendus/jour-entree1.jpg','Jour · depuis l\'entrée 1'],['rendus/jour-facade.jpg','Jour · la façade'],['rendus/soir-facade.jpg','Soir · la façade']];
+const RENDERS=[['rendus/soir-entree1.jpg','Soir · depuis l\'entrée 1'],['rendus/soir-bar.jpg','Soir · le bar'],['rendus/soir-fond.jpg','Soir · coin piano'],['rendus/soir-piano.jpg','Soir · le piano et le papier peint'],['rendus/jour-entree1.jpg','Jour · depuis l\'entrée 1'],['rendus/jour-facade.jpg','Jour · la façade'],['rendus/soir-facade.jpg','Soir · la façade']];
 (function(){const g=document.getElementById('gallery'),img=document.getElementById('gImg'),cap=document.getElementById('gCap');let i=0;
   const show=k=>{i=(k+RENDERS.length)%RENDERS.length;img.src=RENDERS[i][0];img.alt=RENDERS[i][1];cap.textContent=(i+1)+' / '+RENDERS.length+' · '+RENDERS[i][1];};
   const b=document.createElement('button');b.className='chip photo';b.type='button';b.textContent='Rendus photo';b.onclick=()=>{g.hidden=false;show(i);document.getElementById('gClose').focus();};nav.appendChild(b);
