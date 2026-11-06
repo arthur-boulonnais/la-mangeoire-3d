@@ -7,3 +7,10 @@ salle, nouveau bar arrondi, arrière-bar, banquettes, tables, piano, façade et 
 - `rendus/` : rendus photo calculés dans Blender à partir de la maquette.
 
 Site statique, sans étape de build : Vercel le publie tel quel.
+
+## Sources
+
+Le dossier `source/` garde de quoi reconstruire la maquette et les rendus :
+- `template.html` + `data_block.js` + `moquette-leopard.jpg` : la maquette ; `build.py` assemble `index.html`.
+- `export_glb.js` : exporte la scène en `.glb` (Playwright + three.js GLTFExporter).
+- `render_qg.py` : rendus photo dans Blender (module Python `bpy`, moteur Cycles).
