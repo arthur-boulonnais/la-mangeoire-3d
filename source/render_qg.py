@@ -37,6 +37,10 @@ for m in bpy.data.materials:
     n = bsdf(m); name = m.name
     if name in ('velvet', 'curtain'):
         setin(n, 'Roughness', 0.85); setin(n, 'Sheen Weight', 0.9); setin(n, 'Sheen Roughness', 0.35); setin(n, 'Sheen Tint', (1, 0.55, 0.55, 1))
+    elif name == 'boucle':
+        setin(n, 'Roughness', 0.95); setin(n, 'Sheen Weight', 1.0); setin(n, 'Sheen Roughness', 0.45); setin(n, 'Sheen Tint', (1, 0.7, 0.5, 1))
+    elif name == 'dipoWood':
+        setin(n, 'Roughness', 0.35); setin(n, 'Coat Weight', 0.3)
     elif name == 'leather':
         setin(n, 'Roughness', 0.42); setin(n, 'Coat Weight', 0.25); setin(n, 'Coat Roughness', 0.3)
     elif name == 'chairWood' or name == 'wood' or name == 'wall':
