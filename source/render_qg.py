@@ -38,7 +38,7 @@ for m in bpy.data.materials:
     if name in ('velvet', 'curtain'):
         setin(n, 'Roughness', 0.85); setin(n, 'Sheen Weight', 0.9); setin(n, 'Sheen Roughness', 0.35); setin(n, 'Sheen Tint', (1, 0.55, 0.55, 1))
     elif name == 'boucle':
-        setin(n, 'Roughness', 0.95); setin(n, 'Sheen Weight', 1.0); setin(n, 'Sheen Roughness', 0.45); setin(n, 'Sheen Tint', (1, 0.7, 0.5, 1))
+        setin(n, 'Roughness', 0.9); setin(n, 'Sheen Weight', 0.25); setin(n, 'Sheen Roughness', 0.5); setin(n, 'Sheen Tint', (0.75, 0.32, 0.15, 1)); setin(n, 'Specular IOR Level', 0.2)
     elif name == 'dipoWood':
         setin(n, 'Roughness', 0.35); setin(n, 'Coat Weight', 0.3)
     elif name == 'leather':
