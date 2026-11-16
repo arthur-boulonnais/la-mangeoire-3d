@@ -77,7 +77,7 @@ for i in range(0, len(RENDERS), 2):
 
 # ---------------- references
 REFS = [
- ('moquette', 'Moquette léopard', 'Sol de toute la salle', [('Surface', 'salle ≈ 66 m² (dont bar et arrière-bar ≈ 4,6 m²)'), ('À commander', 'prévoir ≈ 73 m² avec 10 % de chutes'), ('Motif', 'taches d\'environ 7 cm')], 'Photo fournie. Pose bord à bord dans toute la salle ; à valider sous le bar et l\'arrière-bar.'),
+ ('moquette', 'Moquette léopard', 'Sol de toute la salle', [('Surface', 'salle ≈ 59,6 m², mesurée sur le plan 1/50 (dont bar et arrière-bar ≈ 4,6 m²)'), ('À commander', 'prévoir ≈ 66 m² avec 10 % de chutes'), ('Motif', 'taches d\'environ 7 cm')], 'Photo fournie. Pose bord à bord dans toute la salle ; à valider sous le bar et l\'arrière-bar.'),
  ('papier-peint', 'Papier peint tulipes', 'Coin piano : mur du fond et mur en biais', [('Surface', '≈ 4,5 m² (2,67 m de long × 1,70 m de haut)'), ('Pose', 'de la boiserie (0,95 m) à la corniche'), ('Raccord', 'motif ≈ 17,5 × 18 cm, raccord sauté')], 'Échantillon 50 × 50 cm fourni. Prévoir les chutes de raccord en plus de la surface.'),
  ('banquette', 'Banquettes', 'Le long des murs et des vitrines', [('Longueurs', 'D1 2500 · A1 3200 · C1 3100 · angle 700 · C2 1200 · B1 2100 · B2 2700 mm'), ('Total', '≈ 15,5 m linéaires, 15 places'), ('Finition', 'cuir anthracite patiné, côtes verticales, clous laiton, socle bois foncé')], 'LED cachées en haut du dossier, éclairage vers le haut (ambiance soir).'),
  ('chaise', 'Chaises de salle', 'Fauteuil bistrot en bois courbé', [('Quantité', '25'), ('Finition', 'bois noyer, assise cuir noir cloutée laiton'), ('Placement', 'face aux banquettes et autour des tables')], 'Modèle à accoudoirs en fer à cheval, dossier haut clouté.'),
@@ -119,7 +119,7 @@ c.showPage()
 
 # ---------------- shopping list
 frame_page('Récapitulatif des quantités', 'Comptées dans la maquette 3D · à confirmer par relevé sur place et avec les fournisseurs')
-ROWS = [('Moquette léopard', '≈ 73 m²', 'salle ≈ 66 m² + 10 % de chutes'), ('Papier peint tulipes', '≈ 4,5 m² + raccord', 'coin piano, 2 murs, h. 1,70 m'),
+ROWS = [('Moquette léopard', '≈ 66 m²', 'salle ≈ 59,6 m² + 10 % de chutes'), ('Papier peint tulipes', '≈ 4,5 m² + raccord', 'coin piano, 2 murs, h. 1,70 m'),
         ('Banquettes cuir anthracite', '≈ 15,5 m', '7 éléments, 15 places'), ('Ruban LED banquettes', '≈ 15 m', 'en haut des dossiers, blanc chaud'),
         ('Chaises de salle bistrot', '25', 'noyer, assise cuir noir'), ('Tables 60 × 60', '18', 'plateau noir uni cerclé laiton, pied fonte'),
         ('Tables rondes Ø 90', '2', 'même style'), ('Chaises de bar Dipo 80 cm', '6', 'velours bouclé rouille'),
