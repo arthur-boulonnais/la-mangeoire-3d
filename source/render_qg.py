@@ -58,7 +58,9 @@ for m in bpy.data.materials:
         setin(n, 'Alpha', 1.0); setin(n, 'Transmission Weight', 1.0); setin(n, 'Roughness', 0.0); setin(n, 'IOR', 1.45); setin(n, 'Base Color', (0.92, 0.96, 0.96, 1))
     elif name == 'carpet':
         setin(n, 'Roughness', 0.95); setin(n, 'Sheen Weight', 0.0); setin(n, 'Specular IOR Level', 0.2)
-    elif name in ('wcLacquer', 'wcBlack'):
+    elif name == 'wcLacquer':
+        setin(n, 'Roughness', 0.35); setin(n, 'Coat Weight', 0.35); setin(n, 'Coat Roughness', 0.18); setin(n, 'Base Color', (0.16, 0.025, 0.02, 1))
+    elif name == 'wcBlack':
         setin(n, 'Roughness', 0.12); setin(n, 'Coat Weight', 1.0); setin(n, 'Coat Roughness', 0.03)
     elif name == 'wcFloor':
         setin(n, 'Roughness', 0.15); setin(n, 'Coat Weight', 0.5)
@@ -128,7 +130,7 @@ for o in list(bpy.data.objects):
     if base == 'drum': add_point(loc + Vector((0, 0, 0.1)), 70 if night else 35, (1.0, 0.8, 0.58), 0.18, 'drumL')
     elif base == 'chandelier': add_point(loc + Vector((0, 0, 0.2)), 90 if night else 30, (1.0, 0.82, 0.6), 0.2, 'chandL')
     elif base == 'lantern' and night: add_point(loc, 10, (1.0, 0.72, 0.4), 0.06, 'lanternL')
-    elif base == 'wclight': add_point(loc, 18 if night else 12, (1.0, 0.8, 0.58), 0.08, 'wcL')
+    elif base == 'wclight': add_point(loc, 30, (1.0, 0.78, 0.55), 0.12, 'wcL')
 add_point(B([12.75, 1.49, 4.92]), 12 if night else 0, (1.0, 0.75, 0.45), 0.05, 'pianolamp')
 
 world = bpy.data.worlds.new('w'); sc.world = world; world.use_nodes = True
@@ -165,7 +167,7 @@ try: sc.view_settings.look = 'AgX - Medium High Contrast'
 except Exception:
     try: sc.view_settings.look = 'Medium High Contrast'
     except Exception: pass
-sc.view_settings.exposure = (1.0 if night else -0.4) if view == 'facade' else (0.9 if night else 1.1)
+sc.view_settings.exposure = (1.0 if night else -0.4) if view == 'facade' else (0.9 if view == 'wc' else (0.9 if night else 1.1))
 sc.render.image_settings.file_format = 'PNG'
 sc.render.filepath = out
 bpy.ops.render.render(write_still=True)
