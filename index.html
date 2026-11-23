@@ -417,7 +417,7 @@ obox(5.02,5.28,0.76,0.035,2.1,0,0,M.wood);
   box(X0-T,Y0-T,X1+T,Y0,0,HC,M.wall);
   box(X0-T,Y0,X0,Y1,0,HC,M.wall);
   box(X1,Y0,X1+T,Y1-1.90,0,HC,M.wall); box(X1,Y1-1.10,X1+T,Y1,0,HC,M.wall); box(X1,Y1-1.90,X1+T,Y1-1.10,2.10,HC,M.wall);
-  obox(X1+0.05,Y1-1.50,0.04,0.78,2.08,0,0,M.wcLacquer);     // porte de cave (fermée, ouvre vers l'extérieur)
+  obox(X1-0.004,Y1-1.50,0.012,0.80,2.10,0,0,M.wcLacquer);  // porte de cave affleurante, même laque que le mur (s'y fond)
   // cloisons du cabinet, porte 70 cm face à la cave (ouvre vers l'intérieur du cabinet)
   box(X0,CY-PT,CX,CY,0,HC,M.wcLacquer);
   box(CX-PT,Y0,CX,CY-0.82,0,HC,M.wcLacquer); box(CX-PT,CY-0.12,CX,CY,0,HC,M.wcLacquer); box(CX-PT,CY-0.82,CX,CY-0.12,2.05,HC,M.wcLacquer);
@@ -432,7 +432,7 @@ obox(5.02,5.28,0.76,0.035,2.1,0,0,M.wood);
     return g;}
   skin([X0,CY],[X0,Y1],[1,0],M.wcLacquer,false);                       // mur du lavabo (miroir, appliques)
   skin([X0,Y1],[6.667,Y1],[0,-1],M.wcLacquer,true);                      // mur côté salle
-  skin([X1,Y1],[X1,Y1-1.10],[-1,0],M.wcLacquer,true);                    // mur côté banquette (porte de cave)
+  skin([X1,Y1],[X1,Y1-1.10],[-1,0],M.wcLacquer,false); skin([X1,Y1-1.90],[X1,Y0],[-1,0],M.wcLacquer,false);  // mur de la cave : laque lisse
   skin([CX,Y0],[X1,Y0],[0,1],M.wcLacquer,true);                          // fond, hors cabinet
   skin([X0,CY],[CX,CY],[0,1],M.wcLacquer,true);                          // cloison du cabinet côté sas
   skin([CX,Y0],[CX,CY-0.82],[1,0],M.wcLacquer,false);
@@ -444,17 +444,22 @@ obox(5.02,5.28,0.76,0.035,2.1,0,0,M.wood);
   [[0,0.015],[-0.1,0.008],[0.1,0.008]].forEach(([dy,r])=>{const m=mesh(new THREE.CylinderGeometry(r,r,0.12,10),M.brass,0,0,0);m.rotation.z=Math.PI/2;m.position.copy(V(X0+0.06,ly+dy,1.0));});
   const {g:lg,L:lL}=wallFrame([X0,CY],[X0,Y1],[1,0]);
   mesh(new THREE.CircleGeometry(0.3,48),M.mirror,lL/2,1.55,0.03,lg).castShadow=false; mesh(new THREE.TorusGeometry(0.31,0.014,8,64),M.brass,lL/2,1.55,0.035,lg);
-  sconce(lg,0.1,1.62,0.04); sconce(lg,lL-0.1,1.62,0.04);
+  {const a=wallFrame([X0,CY],[X0+0.6,CY],[0,1]);sconce(a.g,0.3,1.75,0.04);const b=wallFrame([X0,Y1],[X0+0.6,Y1],[0,-1]);sconce(b.g,0.3,1.75,0.04);}  // appliques face à face, de chaque côté du lavabo
   // cabinet : WC suspendu noir face à la porte, mur de cadres dorés (photos noir et blanc), 2 appliques tulipe
   const wc=new THREE.Group();wc.position.copy(V(X0+0.02,(Y0+CY-PT)/2,0));wc.rotation.y=Math.PI/2;scene.add(wc);
   mesh(new THREE.RoundedBoxGeometry(0.4,0.42,0.12,2,0.02),M.wcBlack,0,0.62,0.06,wc);
   const bowl=mesh(new THREE.SphereGeometry(0.2,24,16),M.wcBlack,0,0.38,0.32,wc);bowl.scale.set(0.9,0.5,1.25);
   mesh(new THREE.CylinderGeometry(0.19,0.19,0.025,28),M.wcBlack,0,0.44,0.32,wc).scale.set(0.95,1,1.3);
-  const {g:fg,L:fL}=wallFrame([X0,Y0],[X0,CY-PT],[1,0]);const r=rng(77);
-  [[0.22,1.95,0.22,0.28],[0.5,2.05,0.26,0.34],[0.76,1.92,0.2,0.26],[0.3,1.55,0.3,0.24],[0.62,1.6,0.22,0.3],[0.2,1.18,0.2,0.2],[0.48,1.22,0.26,0.22],[0.76,1.25,0.18,0.24],[0.42,2.38,0.2,0.16],[0.74,2.36,0.18,0.2]].forEach(([x,y,w,h])=>{
-    if(x+w/2>fL-0.02) return; mesh(lbox(w,h,0.025),M.brass,x,y,0.03,fg); mesh(lbox(w-0.04,h-0.04,0.004),M.wcMat,x,y,0.044,fg);
-    mesh(lbox(w-0.1,h-0.1,0.004),r()<.5?M.wcPhoto:M.wcPhoto2,x,y,0.047,fg);});
+  const {g:fg,L:fL}=wallFrame([X0,Y0],[X0,CY-PT],[1,0]);
   [0.08,fL-0.08].forEach(x=>{const tl=mesh(new THREE.ConeGeometry(0.05,0.2,20,1,true),M.opal,x,2.2,0.12,fg);tl.rotation.x=Math.PI;tl.castShadow=false;mesh(new THREE.CylinderGeometry(0.006,0.006,0.25,6),M.brass,x,2.0,0.08,fg).rotation.x=0.6;});
+  // mur de cadres dorés (photos noir et blanc) sur tout le mur de la cave, porte comprise
+  {const {g:eg,L:eL}=wallFrame([X1,Y1],[X1,Y0],[-1,0]);const r=rng(77);
+   const F=[[0.12,2.30,0.22,0.28],[0.40,2.36,0.26,0.20],[0.70,2.32,0.30,0.30],[1.02,2.38,0.22,0.18],[1.30,2.30,0.28,0.34],[1.62,2.36,0.24,0.22],[1.88,2.30,0.18,0.26],
+     [0.16,1.92,0.24,0.34],[0.46,1.98,0.26,0.24],[0.76,1.88,0.24,0.38],[1.06,1.96,0.30,0.26],[1.40,1.86,0.28,0.40],[1.70,1.94,0.22,0.28],[1.90,1.90,0.14,0.20],
+     [0.14,1.48,0.20,0.26],[0.42,1.52,0.28,0.32],[0.74,1.46,0.22,0.24],[1.02,1.54,0.26,0.30],[1.32,1.42,0.24,0.26],[1.62,1.50,0.30,0.34],[1.90,1.46,0.14,0.22],
+     [0.20,1.10,0.28,0.26],[0.52,1.12,0.22,0.30],[0.82,1.08,0.30,0.22],[1.14,1.14,0.22,0.26],[1.42,1.06,0.26,0.20],[1.72,1.12,0.24,0.28]];
+   F.forEach(([x,y,w,h])=>{if(x-w/2<0.02||x+w/2>eL-0.02)return;mesh(lbox(w,h,0.025),M.brass,x,y,0.03,eg);mesh(lbox(w-0.04,h-0.04,0.004),M.wcMat,x,y,0.044,eg);
+     mesh(lbox(w-0.1,h-0.1,0.004),r()<.5?M.wcPhoto:M.wcPhoto2,x,y,0.047,eg);});}
   // lumière (aperçu) + repère pour le rendu Blender
   [[(X0+X1)/2+0.3,(CY+Y1)/2,2.6],[(X0+CX)/2,(Y0+CY)/2,2.6]].forEach(([x,z,y])=>{const g=new THREE.Group();g.name='wclight';g.position.copy(V(x,z,y));scene.add(g);
     const l=new THREE.PointLight(0xffc98a,0.7,3.5,2);g.add(l);LIGHTS.push({l,night:0.8,day:0.5});
@@ -813,10 +818,11 @@ const VIEWS=[
  {id:'fond',name:'Coin piano',pos:[16.2,1.65,5.35],tgt:[9.0,0.9,8.3]},
  {id:'banquettes',name:'Allée centrale',pos:[12.6,1.55,7.75],tgt:[7.0,1.0,7.6]},
  {id:'facade',name:'Façade',pos:[22.6,1.7,16.2],tgt:[13.6,2.9,8.6]},
- {id:'wc',name:'WC',pos:[7.33,1.5,4.8],tgt:[5.39,1.35,4.45],fov:72}
+ {id:'wc',name:'WC',pos:[7.33,1.5,4.8],tgt:[5.39,1.35,4.45],fov:72},
+ {id:'wcCave',name:'WC · mur de cadres',pos:[5.75,1.55,4.75],tgt:[7.39,1.6,4.0],fov:72}
 ];
 const nav=document.getElementById('views');
-const RENDERS=[['rendus/soir-entree1.jpg','Soir · depuis l\'entrée 1'],['rendus/soir-bar.jpg','Soir · le bar'],['rendus/soir-fond.jpg','Soir · coin piano'],['rendus/soir-piano.jpg','Soir · le piano et le papier peint'],['rendus/soir-wc.jpg','Les WC · lavabo (déco provisoire)'],['rendus/jour-entree1.jpg','Jour · depuis l\'entrée 1'],['rendus/jour-facade.jpg','Jour · la façade'],['rendus/soir-facade.jpg','Soir · la façade']];
+const RENDERS=[['rendus/soir-entree1.jpg','Soir · depuis l\'entrée 1'],['rendus/soir-bar.jpg','Soir · le bar'],['rendus/soir-fond.jpg','Soir · coin piano'],['rendus/soir-piano.jpg','Soir · le piano et le papier peint'],['rendus/soir-wc.jpg','Les WC · lavabo (déco provisoire)'],['rendus/soir-wccave.jpg','Les WC · mur de cadres sur la porte de cave'],['rendus/jour-entree1.jpg','Jour · depuis l\'entrée 1'],['rendus/jour-facade.jpg','Jour · la façade'],['rendus/soir-facade.jpg','Soir · la façade']];
 (function(){const g=document.getElementById('gallery'),img=document.getElementById('gImg'),cap=document.getElementById('gCap');let i=0;
   const show=k=>{i=(k+RENDERS.length)%RENDERS.length;img.src=RENDERS[i][0];img.alt=RENDERS[i][1];cap.textContent=(i+1)+' / '+RENDERS.length+' · '+RENDERS[i][1];};
   const b=document.createElement('button');b.className='chip photo';b.type='button';b.textContent='Rendus photo';b.onclick=()=>{g.hidden=false;show(i);document.getElementById('gClose').focus();};nav.appendChild(b);
