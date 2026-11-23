@@ -473,15 +473,14 @@ function banquette(a,b,n,name,nominal){const L=Math.hypot(b[0]-a[0],b[1]-a[1]);c
   if(name){c=at(L/2,0.3);label(name+' · '+(nominal||Math.round(L*10)*100)+' mm',c[0],c[1],1.2);}
 }
 function wallSeg(p,q,s0,s1){const L=Math.hypot(q[0]-p[0],q[1]-p[1]);const u=[(q[0]-p[0])/L,(q[1]-p[1])/L];return [[p[0]+u[0]*s0,p[1]+u[1]*s0],[p[0]+u[0]*s1,p[1]+u[1]*s1]];}
-banquette([8.62,10.10],[11.12,10.08],[0,-1],'D1');
-banquette([8.52,5.355],[11.72,5.309],[0.014,1],'A1');
+banquette([8.12,10.106],[11.12,10.08],[0,-1],'D1',3000);
+banquette([7.92,5.3625],[11.72,5.309],[0.014,1],'A1',3800);
 banquette([11.83,10.42],[14.93,10.416],[0,-1],'C1');
 (function(){const [a,b]=wallSeg([14.942,10.416],[16.167,8.769],0.85,2.05);banquette(a,b,[-0.802,-0.597],'C2');
   const B=a,F=[a[0]-0.802*0.61,a[1]-0.597*0.61];prism([[14.93,10.37],[B[0]-0.03,B[1]-0.02],[F[0]+0.06,F[1]+0.05],[14.93,9.87]],0,0.2,M.plinth);
   prism([[14.93,10.35],[B[0]-0.05,B[1]-0.04],[F[0]+0.01,F[1]+0.01],[14.93,9.82]],0.2,0.27,M.leather);
   label('Angle 700',(14.93+B[0]+F[0])/3,(10.2+B[1]+F[1])/3,1.2);})();
 (function(){const [a,b]=wallSeg([14.548,4.549],[16.658,4.733],0.0,2.1);banquette(a,b,[-0.0869,0.9962],'B1');})();
-(function(){const [a,b]=wallSeg([16.658,4.733],[16.453,7.923],0.50,3.196);banquette(a,b,[-0.9979,-0.0641],'B2',2700);})();
 
 /* ---------- Tables (marble, brass rim, cast-iron base) and bentwood armchairs ---------- */
 const column=new THREE.LatheGeometry([[0.001,0.06],[0.05,0.06],[0.05,0.1],[0.032,0.14],[0.026,0.3],[0.04,0.33],[0.026,0.36],[0.024,0.62],[0.036,0.66],[0.05,0.7],[0.07,0.72],[0.001,0.725]].map(p=>new THREE.Vector2(p[0],p[1])),18);
@@ -522,18 +521,22 @@ function chair(x,z,tx,tz){chairCount++;SEATS.push([x,z]);const g=new THREE.Group
   for(let i=0;i<7;i++){const k=(i-3)/3;const aB=Math.PI/2+k*0.5,aT=Math.PI/2+k*0.78;const B=new THREE.Vector3(Math.cos(aB)*0.17,0.47,-Math.sin(aB)*0.17),T=new THREE.Vector3(Math.cos(aT)*0.245,0.7,-Math.sin(aT)*0.245);
     const d=T.clone().sub(B);const s=mesh(splatGeo,M.chairWood,(B.x+T.x)/2,(B.y+T.y)/2,(B.z+T.z)/2,g);s.scale.y=d.length();s.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());}}
 const T_AXIS=angOf(1,-0.0135);
-[8.95,9.55,10.15,10.75].forEach(x=>{table60(x,9.19,T_AXIS);chair(x,8.72,x,9.19);banqTables++;SEATS.push([x,9.66]);});
-[8.86,9.46,10.06,10.66,11.26].forEach(x=>{table60(x,6.25,T_AXIS);chair(x,6.72,x,6.25);banqTables++;SEATS.push([x,5.78]);});
-table60(8.30,9.22,T_AXIS);chair(8.30,8.74,8.30,9.22);
-table60(8.24,6.28,T_AXIS);
-table60(9.755,7.70,T_AXIS);chair(9.27,7.69,9.755,7.70);chair(10.24,7.71,9.755,7.70);
-table60(11.48,7.83,T_AXIS);chair(11.0,7.82,11.48,7.83);chair(11.96,7.84,11.48,7.83);
-[12.14,13.25].forEach(x=>{table60(x,9.51,T_AXIS);chair(x,9.04,x,9.51);banqTables++;SEATS.push([x,9.98]);});
-(function(){const n=[-0.0869,0.9962],ang=angOf(0.9962,0.0869);[[14.86,5.49],[15.47,5.545]].forEach(([x,z])=>{table60(x,z,ang);chair(x+n[0]*0.47,z+n[1]*0.47,x,z);banqTables++;SEATS.push([x-n[0]*0.47,z-n[1]*0.47]);});})();
-(function(){const ang=angOf(-0.0641,0.9979);table60(15.61,6.83,ang);chair(15.14,6.80,15.61,6.83);banqTables++;SEATS.push([16.08,6.86]);})();
+// D1: 5 tables de 2 sur 3,00 m
+[8.42,9.02,9.62,10.22,10.82].forEach(x=>{table60(x,9.19,T_AXIS);chair(x,8.72,x,9.19);banqTables++;SEATS.push([x,9.66]);});
+// A1: 6 tables de 2 sur 3,80 m
+[8.26,8.86,9.46,10.06,10.66,11.26].forEach(x=>{table60(x,6.25,T_AXIS);chair(x,6.72,x,6.25);banqTables++;SEATS.push([x,5.78]);});
+// C1: 3 tables de 2 (d'après le dessin : une près de l'angle, deux accolées vers le pilier)
+[14.00,12.80,12.20].forEach(x=>{table60(x,9.51,T_AXIS);chair(x,9.04,x,9.51);banqTables++;SEATS.push([x,9.98]);});
+// B1: 1 table de 2 + 1 table de 4 (2 x 60x60) poussée contre la vitre B2
+(function(){const u=[0.9962,0.0869],n=[-0.0869,0.9962],ang=angOf(u[0],u[1]),O=[14.548,4.549];const at=(s,d)=>[O[0]+u[0]*s+n[0]*d,O[1]+u[1]*s+n[1]*d];
+  [0.30,1.10,1.70].forEach(s=>{const [x,z]=at(s,0.91);table60(x,z,ang);const [cx,cz]=at(s,1.38);chair(cx,cz,x,z);banqTables++;SEATS.push(at(s,0.44));});})();
+// B2: banquette supprimée -> table de 4 (2 x 60x60) le long de la vitre, 2 chaises côté vitre + 2 côté salle
+(function(){const v=[-0.0641,0.9979],m=[-0.9979,-0.0641],ang=angOf(v[0],v[1]),O=[16.658,4.733];const at=(t,d)=>[O[0]+v[0]*t+m[0]*d,O[1]+v[1]*t+m[1]*d];
+  [1.88,2.48].forEach(t=>{const [x,z]=at(t,0.88);table60(x,z,ang);[[0.41],[1.35]].forEach(([d])=>{const [cx,cz]=at(t,d);chair(cx,cz,x,z);});});})();
 function roundSet(x,z,d,chairsAt){tableRound(x,z,d);chairsAt.forEach(([cx,cz])=>{const a=Math.atan2(cz-z,cx-x);chair(x+Math.cos(a)*0.66,z+Math.sin(a)*0.66,x,z);});}
 roundSet(12.77,6.63,0.9,[[12.237,7.062],[12.504,6.032],[13.137,7.235],[13.451,6.397]]);
-roundSet(14.70,9.08,0.9,[[14.114,9.124],[14.486,8.402]]);SEATS.push([14.86,9.75]);
+// C2: table carrée 60x60 devant la banquette C2, collée à la paroi du sas, 1 chaise côté salle
+(function(){const u=[0.597,-0.802],n=[-0.802,-0.597],ang=angOf(u[0],u[1]),C=[15.11,8.65];table60(C[0],C[1],ang);chair(C[0]-n[0]*-0.47,C[1]-n[1]*-0.47,C[0],C[1]);banqTables++;SEATS.push([C[0]-n[0]*0.47,C[1]-n[1]*0.47]);})();
 
 /* ---------- Table settings: plate, folded napkin, fork, knife, wine glass, water glass for every seat ---------- */
 const TW={plate:new THREE.CylinderGeometry(0.13,0.105,0.016,36),napkin:new THREE.RoundedBoxGeometry(0.12,0.018,0.09,2,0.006),
@@ -678,7 +681,7 @@ label('Cuisine',4.3,4.6,0.4,'zone');label('WC',7.03,4.85,2.3,'zone');label('Bar'
 label('Entrée 1',16.6,8.5,2.45,'zone');label('Entrée 2',7.55,10.45,2.45,'zone');label('Piano droit',13.25,4.9,1.6);label('Poteau',13.9,7.6,1.4);label('Sas · rideau',15.5,8.3,2.4);
 
 /* ---------- Stats ---------- */
-const seats=chairCount+banqTables+1, bar=STOOLS.length;
+const seats=chairCount+banqTables, bar=STOOLS.length;
 document.getElementById('stats').innerHTML=`<span><b>${seats+bar}</b> places</span><span>${seats} en salle · ${bar} au bar</span><span>salle ≈ 12,1 × 5,3 m</span>`;
 
 /* ---------- Evening / day ---------- */
