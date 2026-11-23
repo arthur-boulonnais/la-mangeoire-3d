@@ -71,11 +71,12 @@ for (a, b) in [((6.627, 10.14), (9.694, 10.10)), ((6.627, 10.19), (9.694, 10.155
 # kitchen sliding door + WC door
 c.setStrokeColor(GREY); c.setLineWidth(1.2); c.line(*P(4.66, 5.35), *P(5.39, 5.35)); c.line(*P(6.67, 5.28), *P(7.39, 5.28))
 # neighbouring furniture (grey)
-for (tx, tz) in [(8.24, 6.28), (8.30, 9.22)]:
+for (tx, tz) in [(8.26, 6.25), (8.86, 6.25), (8.42, 9.19), (9.02, 9.19)]:
     poly([(tx-.3, tz-.3), (tx+.3, tz-.3), (tx+.3, tz+.3), (tx-.3, tz+.3)], fill=white, stroke=LIGHT, lw=0.5)
-c.setStrokeColor(LIGHT); c.circle(*P(8.30, 8.74), 0.25*SC, stroke=1, fill=0)
-poly([(8.52, 5.355), (9.2, 5.35), (9.2, 5.965), (8.52, 5.965)], fill=white, stroke=LIGHT, lw=0.5)
-poly([(8.62, 9.49), (9.2, 9.49), (9.2, 10.10), (8.62, 10.10)], fill=white, stroke=LIGHT, lw=0.5)
+c.setStrokeColor(LIGHT)
+for (cx_, cz_) in [(8.26, 6.72), (8.86, 6.72), (8.42, 8.72), (9.02, 8.72)]: c.circle(*P(cx_, cz_), 0.25*SC, stroke=1, fill=0)
+poly([(7.92, 5.3625), (9.2, 5.35), (9.2, 5.965), (7.92, 5.965)], fill=white, stroke=LIGHT, lw=0.5)
+poly([(8.12, 9.49), (9.2, 9.49), (9.2, 10.106), (8.12, 10.106)], fill=white, stroke=LIGHT, lw=0.5)
 # back bar
 poly([(4.578, 6.99), (5.21, 6.99), (5.21, 10.13), (4.578, 10.13)], fill=BACK, stroke=INK, lw=0.6)
 # bar: top overhang (dashed), body, stools
@@ -89,7 +90,7 @@ def offset_outer(d):
 poly(inner+offset_outer(0.05), fill=None, stroke=INK, lw=0.4, dash=(2, 1.5))
 poly(inner+outer, fill=BAR, stroke=INK, lw=0.9)
 for i, (sx, sz) in enumerate(R['stools']):
-    c.setStrokeColor(GREY); c.setLineWidth(0.4); c.setDash(1.5, 1); c.circle(*P(sx, sz), 0.19*SC, stroke=1, fill=0); c.setDash()
+    c.setStrokeColor(GREY); c.setLineWidth(0.4); c.setDash(1.5, 1); c.circle(*P(sx, sz), 0.26*SC, stroke=1, fill=0); c.setDash()
     note(P(sx, sz)[0], P(sx, sz)[1]-2.5, str(i+1), 7, GREY, True, 'c')
 c.restoreState()
 # frame and room labels
@@ -97,7 +98,7 @@ c.setStrokeColor(LIGHT); c.setLineWidth(0.4); c.rect(bx0, by0, bx1-bx0, by1-by0)
 note(*P(4.25, 5.75), 'CUISINE', 7, GREY, True); note(*P(6.75, 5.12), 'WC', 7, GREY, True)
 note(*P(7.3, 10.8), 'ENTRÉE 2 (façade)', 7, GREY, True); note(*P(4.62, 8.6), 'ARRIÈRE-', 6.5, INK, True); note(*P(4.62, 8.75), 'BAR', 6.5, INK, True)
 note(*P(6.32, 8.25), 'BAR', 9, RED, True, 'c'); note(*P(5.55, 8.0), 'service', 6.5, GREY, False, 'c'); note(*P(7.2, 9.95), 'côté clients', 6.5, GREY, False, 'c')
-note(*P(8.3, 6.28), 'table', 6, GREY, False, 'c'); note(*P(8.3, 9.22), 'table', 6, GREY, False, 'c')
+note(*P(8.56, 6.25), 'rangée A1', 6, GREY, False, 'c'); note(*P(8.72, 9.19), 'rangée D1', 6, GREY, False, 'c')
 
 # dimensions
 x_d = 8.72
@@ -138,8 +139,9 @@ note(15*mm, ny, 'À retenir', 8.5, INK, True)
 lines = [
     f"Développé côté clients (face galbée) : {fr(R['len_outer'])} m  ·  côté service : {fr(R['len_inner'])} m  ·  profondeur du comptoir {fr(R['depth_min'])} à {fr(R['depth_max'])} m (env. 0,70 m).",
     "Le bar part du mur de façade (entrée 2) sur 0,65 m et se termine en crochet côté cuisine ; plateau débordant de 5 cm côté clients (pointillés).",
-    f"6 tabourets (cercles numérotés, Ø 38 cm) espacés d'environ 0,95 m ; tabouret 6 très proche du 5 (0,46 m), à repositionner ou supprimer.",
-    "Points serrés : tabouret 2 à ~18 cm de la table près des WC ; tabouret 4 à ~23 cm de la chaise de la table près de l'entrée 2.",
+    "6 chaises de bar Dipo, assise à 80 cm (cercles numérotés, ≈ 52 cm de large), réparties le long de la face galbée : 0,93 · 0,91 · 0,93 · 0,93 · 0,69 m entre axes.",
+    "Point serré : la chaise 3 est à ~16 cm de la première chaise de la rangée A1 (dos à dos). Les autres gardent au moins 34 cm avec les tables et chaises voisines.",
+    "À REVOIR : la chaise 1 est dans le passage vers la cuisine et les WC (0,94 m entre le bar et le mur) : à décaler le long du bar ou à supprimer.",
 ]
 for i, l in enumerate(lines): note(15*mm, ny - (i+1)*4.2*mm, '• ' + l, 6.8)
 c.showPage()
@@ -165,8 +167,8 @@ c.setFillColor(HexColor('#ffcf7a')); c.circle(*Q(dep+0.03, 1.012), 0.006*K, fill
 c.setFillColor(HexColor('#c9a24e')); c.setStrokeColor(INK); c.circle(*Q(dep+0.14, 0.24), 0.022*K, fill=1, stroke=1)
 rect(dep+0.133, 0, 0.014, 0.218, HexColor('#c9a24e'), lw=0.3)
 c.setDash(2, 1.5); c.setStrokeColor(GREY); c.setLineWidth(0.5)
-c.rect(*Q(dep+0.45-0.19, 0.72), 0.38*K, 0.08*K); c.line(*Q(dep+0.45, 0), *Q(dep+0.45, 0.72)); c.setDash()
-note(*Q(dep+0.45, 0.83), 'tabouret (assise 0,76)', 6.5, GREY, False, 'c')
+c.rect(*Q(dep+0.45-0.215, 0.72), 0.43*K, 0.08*K); c.line(*Q(dep+0.45, 0), *Q(dep+0.45, 0.72)); c.setDash()
+note(*Q(dep+0.45, 0.83), 'chaise Dipo (assise 0,80)', 6.5, GREY, False, 'c')
 note(*Q(dep/2, 0.55), 'caisson bois', 7, white, True, 'c'); note(*Q(dep+0.08, 0.6), 'panneau', 6.5, INK); note(*Q(dep+0.08, 0.565), 'ronce', 6.5, INK)
 note(*Q(0.0, 1.17), 'SERVICE', 7, GREY, True); note(*Q(dep+0.62, 0.5), 'CLIENTS', 7, GREY, True)
 note(*Q(dep+0.1, 1.12), 'plateau marbre rouge 5 cm + jonc laiton', 6.5, INK)

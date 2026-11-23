@@ -36,7 +36,7 @@ L = lambda i: math.dist(P[i], P[(i+1) % len(P)])
 WALLS = [
  ('M1', [26], 'mix', 'Mur côté cuisine'), ('M2', [0], 'mix2', 'Mur côté entrée 2 (derrière le bar)'), ('F1', [1], 'glass', 'Façade entrée 2'),
  ('M3', [2], 'deco', 'Trumeau entre les façades'), ('P1', [3, 4, 5], 'paint', "Pilier d'angle (3 faces)"), ('F2', [6], 'glass', 'Façade banquette C1'),
- ('F3', [7], 'glass', 'Façade en biais (C2)'), ('F4', [9], 'glass', 'Entrée 1 (porte vitrée)'), ('F5', [11], 'glass', 'Façade banquette B2'),
+ ('F3', [7], 'glass', 'Façade en biais (C2)'), ('F4', [9], 'glass', 'Entrée 1 (porte vitrée)'), ('F5', [11], 'glass', 'Façade droite (table de 4)'),
  ('F6', [12], 'glass', 'Façade banquette B1'), ('M4', [13, 14, 15], 'paint', 'Retours du pilier, coin piano (3 faces)'), ('M5', [16], 'wp', 'Mur du piano'),
  ('M6', [17], 'wp', 'Mur en biais du coin piano'), ('M7', [18], 'deco', 'Grand mur banquette A1'), ('O1', [19], 'open', 'Porte des WC (ouverture)'),
  ('M8', [20], 'paint', 'Retour vers WC / couloir'), ('M9', [21, 22, 23, 24], 'paint', 'Massif entre WC et cuisine (4 faces)'), ('O2', [25], 'open', 'Passage cuisine (porte coulissante)'),
