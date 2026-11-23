@@ -125,8 +125,8 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);overflow:hidde
       <li><b>Murs pleins</b> habillés comme tes références : boiserie basse, velours capitonné, miroirs à croisillons, appliques. Les vitrines reçoivent les rideaux.</li>
       <li><b>Hauteur sous plafond</b> 3,00 m (non relevée, à mesurer), plafond brun avec éclairage indirect en corniche.</li>
       <li><b>Coin piano</b> : papier peint tulipes sur les deux murs, deux appliques encadrant le piano ; poteau du sol au plafond à la place de la desserte.</li>
-      <li><b>Tables</b> 60 × 60 plateau verre noir brillant, bord doré, pied fonte bistrot (20 plateaux, dont 2 tables de 4 = 2 × 60 × 60) ; 1 table ronde Ø 90 devant le piano.</li>
-      <li><b>Banquettes</b> cuir anthracite cloutées : A1 3,80 m · C1 3,10 m · D1 3,00 m · B1 2,10 m · C2 1,20 m · angle 0,70 m (13,90 m). Banquette B2 supprimée, remplacée par une table de 4.</li>
+      <li><b>Tables</b> 60 × 60 plateau verre noir brillant, bord doré, pied fonte bistrot (19 plateaux ; tables de 4 = 2 × 60 × 60, table de 6 = 3 × 60 × 60) ; 1 table ronde Ø 90 devant le piano.</li>
+      <li><b>Banquettes</b> cuir anthracite cloutées : A1 3,80 m (une table de 4 et une de 6) · C1 3,10 m · D1 3,00 m · B1 2,10 m · C2 1,20 m · angle 0,70 m (13,90 m). Banquette B2 supprimée, remplacée par une table de 4.</li>
       <li><b>Chaises de bar</b> : 6 Dipo 80 cm. La chaise n° 1 gêne le passage vers la cuisine et les WC, à décaler ou supprimer.</li>
       <li><b>Porte du fond supprimée</b> : l'arrière-bar occupe tout le mur côté cuisine ; accès cuisine par la porte coulissante.</li>
     </ul>
@@ -627,8 +627,8 @@ function chair(x,z,tx,tz){chairCount++;SEATS.push([x,z]);const g=new THREE.Group
 const T_AXIS=angOf(1,-0.0135);
 // D1: 5 tables de 2 sur 3,00 m
 [8.42,9.02,9.62,10.22,10.82].forEach(x=>{table60(x,9.19,T_AXIS);chair(x,8.72,x,9.19);banqTables++;SEATS.push([x,9.66]);});
-// A1: 6 tables de 2 sur 3,80 m
-[8.26,8.86,9.46,10.06,10.66,11.26].forEach(x=>{table60(x,6.25,T_AXIS);chair(x,6.72,x,6.25);banqTables++;SEATS.push([x,5.78]);});
+// A1 sur 3,80 m : table de 4 (2 x 60x60) côté bar + table de 6 (3 x 60x60) côté piano, 40 cm d'écart
+[8.62,9.22,10.22,10.82,11.42].forEach(x=>{table60(x,6.25,T_AXIS);chair(x,6.72,x,6.25);banqTables++;SEATS.push([x,5.78]);});
 // C1: 3 tables de 2 (d'après le dessin : une près de l'angle, deux accolées vers le pilier)
 [14.00,12.80,12.20].forEach(x=>{table60(x,9.51,T_AXIS);chair(x,9.04,x,9.51);banqTables++;SEATS.push([x,9.98]);});
 // B1: 1 table de 2 + 1 table de 4 (2 x 60x60) poussée contre la vitre B2

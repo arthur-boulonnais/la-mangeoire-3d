@@ -79,9 +79,9 @@ for i in range(0, len(RENDERS), 2):
 REFS = [
  ('moquette', 'Moquette léopard', 'Sol de toute la salle', [('Surface', 'salle ≈ 59,6 m², mesurée sur le plan 1/50 (dont bar et arrière-bar ≈ 4,6 m²)'), ('À commander', 'prévoir ≈ 66 m² avec 10 % de chutes'), ('Motif', 'taches d\'environ 7 cm')], 'Photo fournie. Pose bord à bord dans toute la salle ; à valider sous le bar et l\'arrière-bar.'),
  ('papier-peint', 'Papier peint tulipes', 'Coin piano : mur du fond et mur en biais', [('Surface', '≈ 4,5 m² (2,67 m de long × 1,70 m de haut)'), ('Pose', 'de la boiserie (0,95 m) à la corniche'), ('Raccord', 'motif ≈ 17,5 × 18 cm, raccord sauté')], 'Échantillon 50 × 50 cm fourni. Prévoir les chutes de raccord en plus de la surface.'),
- ('banquette', 'Banquettes', 'Le long des murs et des vitrines', [('Longueurs', 'A1 3800 · C1 3100 · D1 3000 · B1 2100 · C2 1200 · angle 700 mm'), ('Total', '13,9 m linéaires, 18 places'), ('Finition', 'cuir anthracite patiné, côtes verticales, clous laiton, socle bois foncé')], 'LED cachées en haut du dossier, éclairage vers le haut (ambiance soir).'),
- ('chaise', 'Chaises de salle', 'Fauteuil bistrot en bois courbé', [('Quantité', '26'), ('Finition', 'bois noyer, assise cuir anthracite (même cuir que les banquettes), clous sur le dessus du dossier'), ('Placement', 'face aux banquettes et autour des tables')], 'Modèle à accoudoirs en fer à cheval, dossier haut clouté.'),
- ('table', 'Tables', 'Plateau verre noir brillant, bord doré, pied fonte bistrot', [('Carrées 60 × 60', '20 (dont 2 tables de 4 = 2 × 60 × 60 accolées)'), ('Ronde Ø 90', '1 (même style)'), ('Hauteur', '≈ 75 cm')], 'Le soir : nappe blanche, bougeoir laiton au centre, assiettes, couverts et verres.'),
+ ('banquette', 'Banquettes', 'Le long des murs et des vitrines', [('Longueurs', 'A1 3800 · C1 3100 · D1 3000 · B1 2100 · C2 1200 · angle 700 mm'), ('Total', '13,9 m linéaires, 17 places'), ('Finition', 'cuir anthracite patiné, côtes verticales, clous laiton, socle bois foncé')], 'LED cachées en haut du dossier, éclairage vers le haut (ambiance soir).'),
+ ('chaise', 'Chaises de salle', 'Fauteuil bistrot en bois courbé', [('Quantité', '25'), ('Finition', 'bois noyer, assise cuir anthracite (même cuir que les banquettes), clous sur le dessus du dossier'), ('Placement', 'face aux banquettes et autour des tables')], 'Modèle à accoudoirs en fer à cheval, dossier haut clouté.'),
+ ('table', 'Tables', 'Plateau verre noir brillant, bord doré, pied fonte bistrot', [('Carrées 60 × 60', '19 (tables de 4 = 2 accolées, table de 6 = 3 accolées)'), ('Ronde Ø 90', '1 (même style)'), ('Hauteur', '≈ 75 cm')], 'Le soir : nappe blanche, bougeoir laiton au centre, assiettes, couverts et verres.'),
  ('dipo', 'Chaises de bar Dipo', 'Hauteur d\'assise 80 cm', [('Quantité', '6'), ('Finition', 'velours bouclé rouille, piétement bois foncé, repose-pieds métal'), ('Pourquoi 80 cm', 'bar à 1,08 m : assise 28 cm sous le plateau')], 'Réparties le long de la face galbée du bar, au moins 68 cm entre deux chaises.'),
  ('suspension', 'Suspensions tambour', 'Laiton et verre opalin, au-dessus des tables', [('Quantité', '6 dans la salle'), ('Hauteur', 'bas du tambour à ≈ 2,20 m')], 'Référence fournie.'),
  ('applique', 'Appliques murales', 'Laiton et verre opalin', [('Quantité', '6'), ('Hauteur', 'centre à ≈ 1,80 m'), ('Coin piano', '2 appliques encadrant le piano')], 'Posées sur les panneaux de velours et sur le papier peint.'),
@@ -120,11 +120,11 @@ c.showPage()
 # ---------------- shopping list
 frame_page('Récapitulatif des quantités', 'Comptées dans la maquette 3D · à confirmer par relevé sur place et avec les fournisseurs')
 ROWS = [('Moquette léopard', '≈ 66 m²', 'salle ≈ 59,6 m² + 10 % de chutes'), ('Papier peint tulipes', '≈ 4,5 m² + raccord', 'coin piano, 2 murs, h. 1,70 m'),
-        ('Banquettes cuir anthracite', '13,9 m', '6 éléments, 18 places'), ('Ruban LED banquettes', '≈ 14 m', 'en haut des dossiers, blanc chaud'),
-        ('Chaises de salle bistrot', '26', 'noyer, assise cuir anthracite'), ('Tables 60 × 60', '20', 'verre noir brillant, bord doré (dont 2 tables de 4)'),
+        ('Banquettes cuir anthracite', '13,9 m', '6 éléments, 17 places'), ('Ruban LED banquettes', '≈ 14 m', 'en haut des dossiers, blanc chaud'),
+        ('Chaises de salle bistrot', '25', 'noyer, assise cuir anthracite'), ('Tables 60 × 60', '19', 'verre noir brillant, bord doré (tables de 4 et de 6 accolées)'),
         ('Table ronde Ø 90', '1', 'même style'), ('Chaises de bar Dipo 80 cm', '6', 'velours bouclé rouille'),
         ('Suspensions tambour', '6', 'laiton, verre opalin'), ('Lustres cristal', '2', 'au-dessus du bar'), ('Appliques murales', '6', 'laiton, verre opalin'),
-        ('Bougeoirs laiton', '21', 'un par plateau, le soir'), ('Lampes champignon laiton', '2', 'bar et piano (+ terrasse si retenue)'),
+        ('Bougeoirs laiton', '20', 'un par plateau, le soir'), ('Lampes champignon laiton', '2', 'bar et piano (+ terrasse si retenue)'),
         ('Rideaux velours rouge', 'toutes les vitrines', 'à mesurer sur place')]
 x0, y = 15*mm, H - 36*mm
 c.setFillColor(white); c.rect(x0, y - len(ROWS)*9*mm - 4*mm, W - 30*mm, len(ROWS)*9*mm + 10*mm, fill=1, stroke=0)
