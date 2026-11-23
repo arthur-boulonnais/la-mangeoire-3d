@@ -13,6 +13,7 @@ VIEWS = {
     'entree2': ([7.6, 1.6, 9.75], [13.5, 1.1, 6.3], 54),
     'banquettes': ([12.6, 1.55, 7.75], [7.0, 1.0, 7.6], 52),
     'piano': ([12.25, 1.45, 7.55], [13.05, 1.35, 4.75], 50),
+    'wc': ([7.33, 1.5, 4.8], [5.39, 1.35, 4.45], 66),
     'facade': ([21.8, 1.65, 15.6], [14.4, 2.0, 9.0], 46),
 }
 def B(p):  # plan coords [x, height, z] -> Blender
@@ -57,6 +58,10 @@ for m in bpy.data.materials:
         setin(n, 'Alpha', 1.0); setin(n, 'Transmission Weight', 1.0); setin(n, 'Roughness', 0.0); setin(n, 'IOR', 1.45); setin(n, 'Base Color', (0.92, 0.96, 0.96, 1))
     elif name == 'carpet':
         setin(n, 'Roughness', 0.95); setin(n, 'Sheen Weight', 0.0); setin(n, 'Specular IOR Level', 0.2)
+    elif name in ('wcLacquer', 'wcBlack'):
+        setin(n, 'Roughness', 0.12); setin(n, 'Coat Weight', 1.0); setin(n, 'Coat Roughness', 0.03)
+    elif name == 'wcFloor':
+        setin(n, 'Roughness', 0.15); setin(n, 'Coat Weight', 0.5)
     elif name == 'porcelain':
         setin(n, 'Roughness', 0.15); setin(n, 'Coat Weight', 0.6)
     elif name == 'cloth':
@@ -123,6 +128,7 @@ for o in list(bpy.data.objects):
     if base == 'drum': add_point(loc + Vector((0, 0, 0.1)), 70 if night else 35, (1.0, 0.8, 0.58), 0.18, 'drumL')
     elif base == 'chandelier': add_point(loc + Vector((0, 0, 0.2)), 90 if night else 30, (1.0, 0.82, 0.6), 0.2, 'chandL')
     elif base == 'lantern' and night: add_point(loc, 10, (1.0, 0.72, 0.4), 0.06, 'lanternL')
+    elif base == 'wclight': add_point(loc, 18 if night else 12, (1.0, 0.8, 0.58), 0.08, 'wcL')
 add_point(B([12.75, 1.49, 4.92]), 12 if night else 0, (1.0, 0.75, 0.45), 0.05, 'pianolamp')
 
 world = bpy.data.worlds.new('w'); sc.world = world; world.use_nodes = True
