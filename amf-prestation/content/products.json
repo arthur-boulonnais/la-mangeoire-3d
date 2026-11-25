@@ -1,0 +1,430 @@
+[
+  {
+    "slug": "brut-150",
+    "nom": "BRUT 150",
+    "gamme": "BRUT",
+    "coupe": "regular",
+    "refFournisseur": "MAGIC - T-shirt Hommes",
+    "page": 2,
+    "grammage": "150 g/m²",
+    "grammageValeur": 150,
+    "composition": "100% coton, jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Col rond",
+      "Coupe confortable",
+      "Bande de propreté",
+      "Sans étiquette"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 10,
+      "100": 9,
+      "250": 7.5,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Coupe droite confortable, épaules montées classiques, longueur aux hanches. Photo : duo homme/femme en noir."
+  },
+  {
+    "slug": "brut-165",
+    "nom": "BRUT 165",
+    "gamme": "BRUT",
+    "coupe": "regular",
+    "refFournisseur": "Valueweight T-Shirt",
+    "page": 3,
+    "grammage": "165 g/m² (blanc 160)",
+    "grammageValeur": 165,
+    "composition": "100% coton (Ash 99/1, Heather Grey 97/3, autres Heather 50/50)",
+    "tailles": "XS–2XL",
+    "details": [
+      "Bande de propreté",
+      "Double piqûre manches, encolure, base"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 10,
+      "100": 9,
+      "250": 7.5,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular classique, manches mi-biceps, col fin. Photo : homme en rouge."
+  },
+  {
+    "slug": "brut-180",
+    "nom": "BRUT 180",
+    "gamme": "BRUT",
+    "coupe": "regular",
+    "refFournisseur": "Classic T",
+    "page": 4,
+    "grammage": "180 g/m² (blanc 175)",
+    "grammageValeur": 180,
+    "composition": "100% coton peigné ringspun (Light Oxford 93/7)",
+    "tailles": "XS–5XL",
+    "details": [
+      "Bord côte à l'encolure",
+      "Doubles piqûres",
+      "Renfort épaules",
+      "Structure tubulaire"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 10.5,
+      "100": 9.2,
+      "250": 7.9,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular légèrement carré, manches mi-biceps, col bord côte. Photo : homme en bleu roi."
+  },
+  {
+    "slug": "reserve-ajuste-185",
+    "nom": "RÉSERVE AJUSTÉ 185",
+    "gamme": "RÉSERVE",
+    "coupe": "ajustée",
+    "refFournisseur": "#E190 T-Shirt",
+    "page": 5,
+    "grammage": "185 g/m²",
+    "grammageValeur": 185,
+    "composition": "100% coton pré-rétréci ring-spun (Ash 99/1, Sport Grey 85/15)",
+    "tailles": "XS–5XL",
+    "details": [
+      "Col rond bord côte",
+      "Bande de propreté",
+      "Structure tubulaire",
+      "Lavable 40°C",
+      "Coupe ajustée"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 11,
+      "100": 10,
+      "250": 8,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Ajustée, plus près du corps, corps légèrement long, manches mi-biceps. Photo : homme en bleu-gris."
+  },
+  {
+    "slug": "reserve-relax-190",
+    "nom": "RÉSERVE RELAX 190",
+    "gamme": "RÉSERVE",
+    "coupe": "relax",
+    "refFournisseur": "SUPERIOR - T-shirt Unisex",
+    "page": 6,
+    "grammage": "190 g/m²",
+    "grammageValeur": 190,
+    "composition": "100% coton",
+    "tailles": "XS–2XL",
+    "details": [
+      "Col rond",
+      "Bande de propreté",
+      "Sans étiquette"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 11,
+      "100": 10,
+      "250": 8,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "ATTENTION : la fiche dit 'oversized' mais la photo montre une coupe relax (légèrement ample, épaules quasi en place). Pour les visuels, la PHOTO fait foi → afficher 'Relax'."
+  },
+  {
+    "slug": "reserve-205",
+    "nom": "RÉSERVE 205",
+    "gamme": "RÉSERVE",
+    "coupe": "regular",
+    "refFournisseur": "Super Premium T-Shirt",
+    "page": 7,
+    "grammage": "205 g/m² (blanc 190)",
+    "grammageValeur": 205,
+    "composition": "100% coton (Ash 99/1, Heather Grey 97/3)",
+    "tailles": "XS–5XL",
+    "details": [
+      "Encolure bord côte",
+      "Bande de propreté épaule à épaule",
+      "Doubles piqûres"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 11,
+      "100": 10,
+      "250": 8,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular, épaules en place, coupe droite. Photo : homme en marine."
+  },
+  {
+    "slug": "reserve-heavy-215",
+    "nom": "RÉSERVE HEAVY 215",
+    "gamme": "RÉSERVE",
+    "coupe": "regular",
+    "refFournisseur": "Authentic Heavyweight T",
+    "page": 8,
+    "grammage": "215 g/m² (blanc 210)",
+    "grammageValeur": 215,
+    "composition": "100% coton peigné ringspun",
+    "tailles": "S–2XL",
+    "details": [
+      "Tubulaire",
+      "Renfort épaules",
+      "Encolure bord élastiqué",
+      "Doubles piqûres"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 11.5,
+      "100": 10.5,
+      "250": 8.5,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular, tissu épais. Sur la photo les manches sont retroussées (stylisme) : manches NON retroussées sur le packshot et 2 portés, retroussées autorisées sur le porté lifestyle uniquement. Le packshot du catalogue montre un logo de marque : ne JAMAIS le reproduire."
+  },
+  {
+    "slug": "millesime-220",
+    "nom": "MILLÉSIME 220",
+    "gamme": "MILLÉSIME",
+    "coupe": "relax",
+    "refFournisseur": "#E220 T-Shirt",
+    "page": 9,
+    "grammage": "220 g/m²",
+    "grammageValeur": 220,
+    "composition": "100% coton (Better Cotton)",
+    "tailles": "XS–3XL",
+    "details": [
+      "Unisexe, coutures latérales",
+      "Col côtelé proéminent",
+      "Sans étiquette (rebranding facile)"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 12.5,
+      "100": 11.5,
+      "250": 9.5,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Unisexe relax, col côtelé épais bien visible, épaules très légèrement tombantes. Photo : groupe de 3 (homme, 2 femmes)."
+  },
+  {
+    "slug": "millesime-oversize-220",
+    "nom": "MILLÉSIME OVERSIZE 220",
+    "gamme": "MILLÉSIME",
+    "coupe": "oversize",
+    "refFournisseur": "#E220 Oversized T-Shirt",
+    "page": 10,
+    "grammage": "220 g/m²",
+    "grammageValeur": 220,
+    "composition": "100% coton (Better Cotton)",
+    "tailles": "XS–3XL",
+    "details": [
+      "Épaules tombantes",
+      "Coupe volontairement surdimensionnée",
+      "Col côtelé proéminent",
+      "Sans étiquette"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 14,
+      "100": 13,
+      "250": 10.8,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Oversize : couture d'épaule nettement tombée sur le bras, manches jusqu'au coude, corps large et droit. Photo : homme en blanc."
+  },
+  {
+    "slug": "millesime-accueil-220",
+    "nom": "MILLÉSIME ACCUEIL 220",
+    "gamme": "MILLÉSIME",
+    "coupe": "regular",
+    "refFournisseur": "MASTERFUL - Unisex Accueil",
+    "page": 11,
+    "grammage": "220 g/m²",
+    "grammageValeur": 220,
+    "composition": "100% coton, jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Coupe confortable",
+      "Bande de propreté",
+      "Sans étiquette",
+      "Sachet de 5"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 13,
+      "100": 12,
+      "250": 10,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular confortable, épaules en place. Photo : femme en rouge. Idéal tenues d'accueil."
+  },
+  {
+    "slug": "millesime-carre-230",
+    "nom": "MILLÉSIME CARRÉ 230",
+    "gamme": "MILLÉSIME",
+    "coupe": "oversize",
+    "refFournisseur": "CHICAGO",
+    "page": 12,
+    "grammage": "220–230 g/m²",
+    "grammageValeur": 230,
+    "composition": "100% coton, jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Coupe oversized",
+      "Bande de propreté",
+      "Sans étiquette"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 15,
+      "100": 14,
+      "250": 12,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Oversize, épaules tombantes, corps plutôt carré et pas trop long. Photo : femme en vert d'eau."
+  },
+  {
+    "slug": "millesime-large-240",
+    "nom": "MILLÉSIME LARGE 240",
+    "gamme": "MILLÉSIME",
+    "coupe": "oversize",
+    "refFournisseur": "Heavy Oversize Tee",
+    "page": 13,
+    "grammage": "240 g/m²",
+    "grammageValeur": 240,
+    "composition": "100% coton (Charcoal 60/40, Grey 90/10)",
+    "tailles": "XS–3XL",
+    "details": [
+      "Épaules sur-découpées",
+      "Coupe large et décontractée",
+      "Idéal sérigraphie"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 15.5,
+      "100": 14.5,
+      "250": 12.5,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Large, épaules tombées, manches longues juste au-dessus du coude, corps ample. Photo : homme en gris chiné."
+  },
+  {
+    "slug": "millesime-box-300",
+    "nom": "MILLÉSIME BOX 300",
+    "gamme": "MILLÉSIME",
+    "coupe": "boxy",
+    "refFournisseur": "Ultra Heavy Cotton Box Tee",
+    "page": 14,
+    "grammage": "300 g/m²",
+    "grammageValeur": 300,
+    "composition": "100% coton épais",
+    "tailles": "XS–3XL",
+    "details": [
+      "Épaules superposées",
+      "Coupe ample et surdimensionnée",
+      "Broderie, flocage, sérigraphie"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 16,
+      "100": 15,
+      "250": 13,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Boxy très ample : corps court et large, manches au coude, col épais, tissu qui tient sa forme. Photo : homme en kaki."
+  },
+  {
+    "slug": "grand-cru-135",
+    "nom": "GRAND CRU 135",
+    "gamme": "GRAND CRU",
+    "coupe": "straight",
+    "refFournisseur": "CROWNING TEE (Made in Portugal)",
+    "page": 16,
+    "grammage": "135 g/m²",
+    "grammageValeur": 135,
+    "composition": "100% coton, single jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Straight fit",
+      "Col côte 1×1 2,5 cm",
+      "Bande de propreté intérieure",
+      "Sans étiquette",
+      "Made in Portugal"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 17,
+      "100": 16,
+      "250": 14,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Straight fit léger. Pas de photo portée dans le catalogue : déduis la coupe des packshots à plat + de la fiche."
+  },
+  {
+    "slug": "grand-cru-180",
+    "nom": "GRAND CRU 180",
+    "gamme": "GRAND CRU",
+    "coupe": "regular",
+    "refFournisseur": "REGULAR FIT TEE (Made in Portugal)",
+    "page": 17,
+    "grammage": "180 g/m²",
+    "grammageValeur": 180,
+    "composition": "100% coton, single jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Regular fit",
+      "Col côte 1×1 2,5 cm",
+      "Étiquette satin noir",
+      "Sans étiquette",
+      "Made in Portugal"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 19,
+      "100": 18,
+      "250": 16,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Regular. Pas de photo portée : déduis la coupe des packshots + fiche. Très large palette de coloris."
+  },
+  {
+    "slug": "grand-cru-oversize-240",
+    "nom": "GRAND CRU OVERSIZE 240",
+    "gamme": "GRAND CRU",
+    "coupe": "oversize",
+    "refFournisseur": "HEAVY LUXURY TEE (Made in Portugal)",
+    "page": 18,
+    "grammage": "240 g/m²",
+    "grammageValeur": 240,
+    "composition": "100% coton, double jersey",
+    "tailles": "XS–2XL",
+    "details": [
+      "Oversize fit",
+      "Double jersey",
+      "Ruban chevron à l'encolure",
+      "Étiquette satin noir",
+      "Made in Portugal"
+    ],
+    "prixAchat10a49": null,
+    "prixAchat": {
+      "50": 24.5,
+      "100": 22,
+      "250": 19.8,
+      "500": null
+    },
+    "coloris": [],
+    "fit": "Oversize, double jersey dense. Pas de photo portée : déduis la coupe des packshots + fiche."
+  }
+]
